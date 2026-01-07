@@ -1,69 +1,111 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Environment, ContactShadows, PerspectiveCamera, OrbitControls } from "@react-three/drei";
-import { useRef, useState } from "react";
+import { Float, Environment, ContactShadows, PerspectiveCamera, OrbitControls, useTexture } from "@react-three/drei";
+import { useRef, useState, Suspense } from "react";
 import * as THREE from "three";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 
 // --- 3D Product Models ---
 
+
 function Mango({ position, scale = 1 }: { position?: [number, number, number]; scale?: number }) {
+    const skinTexture = useTexture("/textures/mango-skin.png");
+
     return (
         <group position={position} scale={scale}>
-            {/* Mango Body */}
-            <mesh position={[0, 0, 0]}>
-                {/* Deformed sphere for mango shape */}
-                <sphereGeometry args={[1, 32, 32]} />
-                <meshStandardMaterial color="#FFB703" roughness={0.4} metalness={0.1} />
+            {/* Mango Body - Distorted Sphere for reliable UVs */}
+            <mesh
+                position={[0, 0.2, 0]}
+                scale={[0.9, 1.1, 0.85]} // Kidney/Mango-ish scaling
+                rotation={[0.2, 0, -0.1]}
+            >
+                <sphereGeometry args={[1, 64, 64]} />
+                <meshStandardMaterial
+                    map={skinTexture}
+                    color="#FFC107"
+                    roughness={0.4}
+                />
             </mesh>
+
             {/* Stem */}
-            <mesh position={[0, 0.9, 0]}>
-                <cylinderGeometry args={[0.05, 0.05, 0.3]} />
-                <meshStandardMaterial color="#3D2C2E" />
+            <mesh position={[0.2, 1.25, 0]} rotation={[0, 0, -0.3]}>
+                <cylinderGeometry args={[0.04, 0.05, 0.3, 8]} />
+                <meshStandardMaterial color="#3E2723" />
             </mesh>
             {/* Leaf */}
-            <mesh position={[0.2, 0.9, 0]} rotation={[0, 0, -0.5]}>
-                <coneGeometry args={[0.2, 0.6, 5]} />
-                <meshStandardMaterial color="#2D6A4F" />
+            <mesh position={[0.25, 1.2, 0]} rotation={[0, 0, -0.8]}>
+                <group rotation={[0.4, 0, 0]}>
+                    <mesh position={[0, 0.5, 0]} scale={[1, 1, 0.05]}>
+                        <sphereGeometry args={[0.25, 32, 32]} />
+                        <meshStandardMaterial color="#2D6A4F" roughness={0.6} side={THREE.DoubleSide} />
+                    </mesh>
+                </group>
             </mesh>
         </group>
     );
 }
 
 function Cashew({ position, scale = 1 }: { position?: [number, number, number]; scale?: number }) {
+    const cashewTexture = useTexture("/textures/cashew-skin.png");
+
+    // Smoother 'Kidney' Curve
+    const path = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-0.6, 0.5, 0),
+        new THREE.Vector3(-0.35, 0.2, 0),
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(0.35, 0.2, 0),
+        new THREE.Vector3(0.6, 0.5, 0),
+    ]);
+
     return (
         <group position={position} scale={scale}>
-            {/* Kidney Shape - approximated with dual spheres + connection */}
-            <mesh position={[-0.4, 0.2, 0]} rotation={[0, 0, 0.5]}>
-                <capsuleGeometry args={[0.4, 1.2, 8, 16]} />
-                <meshStandardMaterial color="#F4F1DE" roughness={0.5} />
-            </mesh>
-            <mesh position={[0.4, 0.4, 0]} rotation={[0, 0, -0.5]}>
-                <capsuleGeometry args={[0.35, 1, 8, 16]} />
-                <meshStandardMaterial color="#F4F1DE" roughness={0.5} />
+            <mesh rotation={[0, 0, 0]}>
+                <tubeGeometry args={[path, 64, 0.28, 16, false]} />
+                <meshStandardMaterial
+                    map={cashewTexture}
+                    color="#FDEBD0"
+                    roughness={0.5}
+                />
             </mesh>
         </group>
     )
 }
 
 function PulpCan({ position, scale = 1 }: { position?: [number, number, number]; scale?: number }) {
+    const labelTexture = useTexture("/textures/pulp-label.png");
+
     return (
         <group position={position} scale={scale}>
+            {/* Main Can Body - Metallic */}
             <mesh castShadow receiveShadow>
-                <cylinderGeometry args={[0.8, 0.8, 2.2, 32]} />
-                <meshStandardMaterial color="#eee" metalness={0.8} roughness={0.2} />
+                <cylinderGeometry args={[0.8, 0.8, 2.2, 64]} />
+                <meshStandardMaterial
+                    color="#E5E7EB"
+                    metalness={0.8}
+                    roughness={0.3}
+                />
             </mesh>
-            {/* Label */}
-            <mesh position={[0, 0, 0.81]}>
-                <cylinderGeometry args={[0.81, 0.81, 1.4, 32, 1, true, 0, Math.PI]} />
-                <meshStandardMaterial color="#FFB703" side={THREE.DoubleSide} />
+            {/* Label - Wrapped around */}
+            <mesh position={[0, 0, 0]} rotation={[0, Math.PI + 0.5, 0]}>
+                <cylinderGeometry args={[0.81, 0.81, 1.4, 64, 1, true]} />
+                <meshStandardMaterial
+                    map={labelTexture}
+                    side={THREE.DoubleSide}
+                    roughness={0.3}
+                    transparent // Fix potential z-fighting alpha issues
+                />
             </mesh>
-            {/* Lid */}
+
+            {/* Lid Details */}
+            <mesh position={[0, 1.105, 0]}>
+                <cylinderGeometry args={[0.78, 0.78, 0.02, 64]} />
+                <meshStandardMaterial color="#D1D5DB" metalness={0.7} roughness={0.3} />
+            </mesh>
             <mesh position={[0, 1.1, 0]}>
-                <cylinderGeometry args={[0.82, 0.82, 0.1, 32]} />
-                <meshStandardMaterial color="#Silver" metalness={0.9} roughness={0.2} />
+                <torusGeometry args={[0.78, 0.03, 16, 64]} />
+                <meshStandardMaterial color="#E5E7EB" metalness={0.9} roughness={0.2} />
             </mesh>
         </group>
     )
@@ -140,8 +182,10 @@ export default function ProductShowcase() {
                                         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
                                         <ambientLight intensity={0.6} />
                                         <spotLight position={[5, 10, 5]} angle={0.3} penumbra={1} intensity={1} castShadow />
-                                        <Environment preset="city" />
-                                        <ProductStage type={product.type} />
+                                        <Environment preset="lobby" />
+                                        <Suspense fallback={null}>
+                                            <ProductStage type={product.type} />
+                                        </Suspense>
                                         <OrbitControls enableZoom={false} autoRotate={false} />
                                     </Canvas>
                                 </div>

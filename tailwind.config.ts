@@ -8,6 +8,10 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['var(--font-outfit)', 'sans-serif'],
+                heading: ['var(--font-heading)', 'serif'],
+            },
             colors: {
                 brand: {
                     mango: "#FFB703",

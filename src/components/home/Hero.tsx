@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import dynamic from 'next/dynamic';
@@ -6,7 +8,7 @@ const HeroScene = dynamic(() => import('./HeroScene'), { ssr: false });
 
 export default function Hero() {
     return (
-        <section className="relative w-full h-screen min-h-[800px] flex items-center overflow-hidden bg-brand-beige">
+        <section className="relative w-full h-[100dvh] min-h-[600px] flex items-center overflow-hidden bg-brand-beige">
             {/* 3D Scene Container / Fallback Gradient */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-clay/20 via-brand-beige to-brand-navy/20" />
@@ -35,7 +37,11 @@ export default function Hero() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button size="lg" className="gap-2 shadow-brand-mango/20">
+                            <Button
+                                size="lg"
+                                className="gap-2 shadow-brand-mango/20"
+                                onClick={() => window.open("https://wa.me/918419921183", "_blank")}
+                            >
                                 <MessageCircle size={20} />
                                 WhatsApp Quote
                             </Button>

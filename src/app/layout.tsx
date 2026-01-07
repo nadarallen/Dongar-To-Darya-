@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
-import { Outfit, Inter } from 'next/font/google'
+import { Outfit, Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const cormorant = Cormorant_Garamond({
+    subsets: ['latin'],
+    variable: '--font-heading',
+    weight: ['400', '600', '700']
+})
 
 export const metadata: Metadata = {
     title: 'Dongar To Darya | Premium Indian Exports',
@@ -27,8 +32,8 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className="scroll-smooth">
-            <body className={`${inter.variable} ${outfit.variable} font-sans bg-brand-beige text-brand-navy antialiased flex flex-col min-h-screen`}>
+        <html lang="en">
+            <body className={`${inter.variable} ${outfit.variable} ${cormorant.variable} font-sans bg-brand-beige text-brand-navy antialiased flex flex-col min-h-screen`}>
                 <Navbar />
                 <main className="flex-grow pt-20">
                     {children}

@@ -1,30 +1,118 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Float, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Float, PerspectiveCamera, OrbitControls } from "@react-three/drei";
 import { motion } from "framer-motion";
+import * as THREE from "three";
+// --- 3D Models ---
+function CargoShip() {
+    return (
+        <group scale={0.6} rotation={[0, -Math.PI / 4, 0]}>
+            <mesh position={[0, -0.5, 0]}>
+                <boxGeometry args={[3.5, 0.8, 1]} />
+                <meshStandardMaterial color="#E63946" />
+            </mesh>
+            <mesh position={[0, 0, 0]}>
+                <boxGeometry args={[3.6, 0.2, 1.1]} />
+                <meshStandardMaterial color="#333" />
+            </mesh>
+            <mesh position={[1.2, 0.5, 0]}>
+                <boxGeometry args={[0.8, 1.2, 0.8]} />
+                <meshStandardMaterial color="#F1FAEE" />
+            </mesh>
+            <mesh position={[1.2, 1.2, 0]}>
+                <boxGeometry args={[1, 0.2, 1]} />
+                <meshStandardMaterial color="#333" />
+            </mesh>
+            <mesh position={[-0.5, 0.4, 0.2]} castShadow>
+                <boxGeometry args={[0.8, 0.8, 0.35]} />
+                <meshStandardMaterial color="#457B9D" />
+            </mesh>
+            <mesh position={[-0.5, 0.4, -0.2]} castShadow>
+                <boxGeometry args={[0.8, 0.8, 0.35]} />
+                <meshStandardMaterial color="#1D3557" />
+            </mesh>
+        </group>
+    )
+}
 
-// --- 3D Badges ---
+function QualityBadge() {
+    return (
+        <group scale={0.7} rotation={[0, 0, 0]}>
+            {/* Shield Body */}
+            <mesh position={[0, 0, 0]}>
+                <cylinderGeometry args={[1.2, 0, 1.5, 6, 1]} />
+                <meshStandardMaterial color="#E07A5F" roughness={0.3} metalness={0.6} />
+            </mesh>
+            {/* Rim */}
+            <mesh position={[0, 0, 0]} rotation={[0, 0, 0]}>
+                <torusGeometry args={[1.0, 0.1, 8, 6]} />
+                <meshStandardMaterial color="#F2CC8F" roughness={0.2} metalness={0.8} />
+            </mesh>
+            {/* Checkmark */}
+            <mesh position={[-0.2, 0, 0.5]} rotation={[0, 0, -Math.PI / 4]}>
+                <boxGeometry args={[0.2, 0.6, 0.1]} />
+                <meshStandardMaterial color="#fff" />
+            </mesh>
+            <mesh position={[0.2, 0.2, 0.5]} rotation={[0, 0, Math.PI / 4]}>
+                <boxGeometry args={[0.2, 1.0, 0.1]} />
+                <meshStandardMaterial color="#fff" />
+            </mesh>
+        </group>
+    )
+}
+
+function PremiumBox() {
+    return (
+        <group scale={0.7} rotation={[0.4, 0.4, 0]}>
+            {/* Box Body */}
+            <mesh>
+                <boxGeometry args={[1.8, 1.8, 1.8]} />
+                <meshStandardMaterial color="#D4A373" roughness={0.8} />
+            </mesh>
+            {/* Tape / Straps */}
+            <mesh position={[0, 0, 0]}>
+                <boxGeometry args={[1.82, 1.82, 0.2]} />
+                <meshStandardMaterial color="#264653" />
+            </mesh>
+            <mesh position={[0, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+                <boxGeometry args={[1.82, 1.82, 0.2]} />
+                <meshStandardMaterial color="#264653" />
+            </mesh>
+        </group>
+    )
+}
+
+function ColdIcon() {
+    return (
+        <group scale={0.7} rotation={[0, 0, 0]}>
+            {/* Center Hex */}
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+                <cylinderGeometry args={[0.5, 0.5, 0.2, 6]} />
+                <meshStandardMaterial color="#A8DADC" roughness={0.2} />
+            </mesh>
+            {/* Snow Spikes */}
+            {[0, 60, 120, 180, 240, 300].map((angle, i) => (
+                <mesh key={i} rotation={[0, 0, angle * (Math.PI / 180)]} position={[0, 0, 0]}>
+                    <boxGeometry args={[0.2, 2.2, 0.1]} />
+                    <meshStandardMaterial color="#457B9D" />
+                </mesh>
+            ))}
+            <mesh position={[0, 0, 0.2]}>
+                <ringGeometry args={[0.8, 0.9, 32]} />
+                <meshStandardMaterial color="#fff" side={THREE.DoubleSide} />
+            </mesh>
+        </group>
+    )
+}
+
 function Badge3D({ type }: { type: string }) {
-    const getColor = () => {
-        switch (type) {
-            case 'qc': return "#E07A5F"; // Terracotta
-            case 'pack': return "#F2CC8F"; // Light Orange
-            case 'cold': return "#A8DADC"; // Ice Blue
-            case 'ship': return "#457B9D"; // Deep Blue
-            default: return "#ccc";
-        }
-    }
-
     return (
         <Float rotationIntensity={0.5} floatIntensity={0.5} speed={2}>
-            <mesh rotation={[0.5, 0.5, 0]}>
-                {type === 'qc' && <icosahedronGeometry args={[1.2, 0]} />}
-                {type === 'pack' && <boxGeometry args={[1.5, 1.5, 1.5]} />}
-                {type === 'cold' && <octahedronGeometry args={[1.3, 0]} />}
-                {type === 'ship' && <torusGeometry args={[0.8, 0.4, 16, 32]} />}
-                <meshStandardMaterial color={getColor()} roughness={0.3} metalness={0.8} />
-            </mesh>
+            {type === 'ship' && <CargoShip />}
+            {type === 'qc' && <QualityBadge />}
+            {type === 'pack' && <PremiumBox />}
+            {type === 'cold' && <ColdIcon />}
         </Float>
     )
 }

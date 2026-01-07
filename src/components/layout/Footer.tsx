@@ -51,13 +51,13 @@ const Footer = () => {
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-brand-mango shrink-0" />
                                 <span>
-                                    101, Export Plaza, Nariman Point,<br />
-                                    Mumbai, Maharashtra - 400021
+                                    Mata Prasad Tiwari Chawal, Kajuwadi no - 2 ,<br />
+                                    Parshiwada, Andheri east , Mumbai - 400099
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-brand-mango shrink-0" />
-                                <span>+91 98765 43210</span>
+                                <span>+91 84199 21183</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-brand-mango shrink-0" />
