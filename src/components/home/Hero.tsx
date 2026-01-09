@@ -5,6 +5,13 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <section className="relative w-full h-[100dvh] min-h-[600px] flex items-center overflow-hidden bg-brand-beige">
             {/* Background Image */}
@@ -44,12 +51,17 @@ export default function Hero() {
                             <Button
                                 size="lg"
                                 className="gap-2 shadow-brand-mango/20 hover:bg-brand-mango hover:text-brand-navy"
-                                onClick={() => window.open("https://wa.me/918419921183", "_blank")}
+                                onClick={() => scrollToSection('calculator')}
                             >
                                 <MessageCircle size={20} />
                                 WhatsApp Quote
                             </Button>
-                            <Button size="lg" variant="outline" className="gap-2 bg-white/50 backdrop-blur-sm border-brand-navy/20 hover:bg-white/80">
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="gap-2 bg-white/50 backdrop-blur-sm border-brand-navy/20 hover:bg-white/80"
+                                onClick={() => scrollToSection('products')}
+                            >
                                 View Products
                                 <ArrowRight size={20} />
                             </Button>
