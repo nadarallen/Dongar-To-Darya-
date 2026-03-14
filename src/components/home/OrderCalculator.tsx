@@ -17,7 +17,7 @@ const countries = [
 
 export default function OrderCalculator() {
     const [selectedProduct, setSelectedProduct] = useState(products[0]);
-    const [quantity, setQuantity] = useState(100);
+    const [quantity, setQuantity] = useState(1);
     const [country, setCountry] = useState("India (Domestic)");
 
     // New Fields
@@ -59,9 +59,9 @@ export default function OrderCalculator() {
     };
 
     return (
-        <section className="py-24 bg-brand-navy relative overflow-hidden" id="calculator">
+        <section className="py-24 bg-secondary relative overflow-hidden" id="calculator">
             {/* Background Decor */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-teal/5 rounded-l-[10rem] pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/5 rounded-l-[10rem] pointer-events-none"></div>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -69,9 +69,9 @@ export default function OrderCalculator() {
                     {/* Left Content */}
                     <div className="space-y-8 text-white">
                         <div className="space-y-4">
-                            <span className="text-brand-mango font-bold tracking-widest uppercase text-sm">Request a Quote</span>
+                            <span className="text-primary font-bold tracking-widest uppercase text-sm">Request a Quote</span>
                             <h2 className="text-4xl md:text-5xl font-bold font-heading">
-                                Wholesale <span className="text-brand-teal">Export</span> Inquiry
+                                Wholesale <span className="text-accent">Export</span> Inquiry
                             </h2>
                             <p className="text-gray-300 text-lg max-w-lg leading-relaxed">
                                 Get a custom quote for bulk orders. PAN India and Global shipping available. Fill in your requirements for best daily rates.
@@ -80,12 +80,12 @@ export default function OrderCalculator() {
 
                         <div className="grid grid-cols-2 gap-6">
                             <div className="glass-panel bg-white/5 border-white/10 p-6 rounded-2xl">
-                                <Globe2 className="w-8 h-8 text-brand-mango mb-4" />
+                                <Globe2 className="w-8 h-8 text-primary mb-4" />
                                 <h4 className="font-bold text-lg mb-1">Domestic & Global</h4>
                                 <p className="text-sm text-gray-400">Serving India & 20+ countries.</p>
                             </div>
                             <div className="glass-panel bg-white/5 border-white/10 p-6 rounded-2xl">
-                                <PackageCheck className="w-8 h-8 text-brand-mango mb-4" />
+                                <PackageCheck className="w-8 h-8 text-primary mb-4" />
                                 <h4 className="font-bold text-lg mb-1">Premium Quality</h4>
                                 <p className="text-sm text-gray-400">Certified export-grade produce.</p>
                             </div>
@@ -94,14 +94,14 @@ export default function OrderCalculator() {
 
                     {/* Right Quote Form */}
                     <div className="glass-card bg-white rounded-3xl p-6 md:p-8 shadow-2xl border-t border-white/60 relative">
-                        <div className="absolute -top-6 -right-6 w-20 h-20 bg-brand-mango rounded-2xl rotate-12 flex items-center justify-center shadow-lg hidden md:flex">
-                            <Calculator className="w-10 h-10 text-brand-navy -rotate-12" />
+                        <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary rounded-2xl rotate-12 flex items-center justify-center shadow-lg hidden md:flex">
+                            <Calculator className="w-10 h-10 text-secondary -rotate-12" />
                         </div>
 
                         <div className="space-y-6">
                             {/* --- Contact Details Section --- */}
                             <div className="space-y-4">
-                                <h4 className="text-brand-navy font-bold flex items-center gap-2">
+                                <h4 className="text-secondary font-bold flex items-center gap-2">
                                     <User size={18} /> Contact Information
                                 </h4>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -116,8 +116,8 @@ export default function OrderCalculator() {
                                             }}
                                             placeholder="John Doe"
                                             className={cn(
-                                                "w-full px-4 py-3 rounded-xl bg-gray-50 border focus:ring-0 outline-none text-brand-navy transition-colors placeholder:text-gray-400",
-                                                errors.name ? "border-red-500 focus:border-red-500" : "border-gray-200 focus:border-brand-navy"
+                                                "w-full px-4 py-3 rounded-xl bg-gray-50 border focus:ring-0 outline-none text-secondary transition-colors placeholder:text-gray-400",
+                                                errors.name ? "border-red-500 focus:border-red-500" : "border-gray-200 focus:border-secondary"
                                             )}
                                         />
                                         {errors.name && <span className="text-xs text-red-500 font-bold">Name is required</span>}
@@ -133,8 +133,8 @@ export default function OrderCalculator() {
                                             }}
                                             placeholder="+91 98765..."
                                             className={cn(
-                                                "w-full px-4 py-3 rounded-xl bg-gray-50 border focus:ring-0 outline-none text-brand-navy transition-colors placeholder:text-gray-400",
-                                                errors.mobile ? "border-red-500 focus:border-red-500" : "border-gray-200 focus:border-brand-navy"
+                                                "w-full px-4 py-3 rounded-xl bg-gray-50 border focus:ring-0 outline-none text-secondary transition-colors placeholder:text-gray-400",
+                                                errors.mobile ? "border-red-500 focus:border-red-500" : "border-gray-200 focus:border-secondary"
                                             )}
                                         />
                                         {errors.mobile && <span className="text-xs text-red-500 font-bold">Phone is required</span>}
@@ -146,7 +146,7 @@ export default function OrderCalculator() {
                                             value={company}
                                             onChange={(e) => setCompany(e.target.value)}
                                             placeholder="Your Company Ltd."
-                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-brand-navy focus:ring-0 outline-none text-brand-navy transition-colors placeholder:text-gray-400"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-0 outline-none text-secondary transition-colors placeholder:text-gray-400"
                                         />
                                     </div>
                                     <div className="md:col-span-2 space-y-2">
@@ -156,7 +156,7 @@ export default function OrderCalculator() {
                                             onChange={(e) => setAddress(e.target.value)}
                                             placeholder="Full address for shipping calculation..."
                                             rows={2}
-                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-brand-navy focus:ring-0 outline-none text-brand-navy transition-colors placeholder:text-gray-400 resize-none"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-0 outline-none text-secondary transition-colors placeholder:text-gray-400 resize-none"
                                         />
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@ export default function OrderCalculator() {
 
                             {/* --- Order Details Section --- */}
                             <div className="space-y-4">
-                                <h4 className="text-brand-navy font-bold flex items-center gap-2">
+                                <h4 className="text-secondary font-bold flex items-center gap-2">
                                     <PackageCheck size={18} /> Order Details
                                 </h4>
 
@@ -182,8 +182,8 @@ export default function OrderCalculator() {
                                                 className={cn(
                                                     "px-3 py-2 rounded-lg border text-sm font-bold transition-all",
                                                     selectedProduct.id === p.id
-                                                        ? "bg-brand-navy text-white border-brand-navy shadow-lg"
-                                                        : "bg-gray-50 text-gray-600 border-gray-200 hover:border-brand-navy/30"
+                                                        ? "bg-secondary text-white border-secondary shadow-lg"
+                                                        : "bg-gray-50 text-gray-600 border-gray-200 hover:border-secondary/30"
                                                 )}
                                             >
                                                 {p.name}
@@ -201,7 +201,7 @@ export default function OrderCalculator() {
                                             min="1"
                                             value={quantity}
                                             onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 0))}
-                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-brand-navy focus:ring-0 outline-none font-bold text-brand-navy transition-colors"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-0 outline-none font-bold text-secondary transition-colors"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -209,7 +209,7 @@ export default function OrderCalculator() {
                                         <select
                                             value={country}
                                             onChange={(e) => setCountry(e.target.value)}
-                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-brand-navy focus:ring-0 outline-none font-bold text-brand-navy transition-colors appearance-none"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-secondary focus:ring-0 outline-none font-bold text-secondary transition-colors appearance-none"
                                         >
                                             {countries.map(c => <option key={c} value={c}>{c}</option>)}
                                         </select>
@@ -219,9 +219,9 @@ export default function OrderCalculator() {
 
                             {/* Total & Action */}
                             <div className="pt-6 border-t border-gray-100 space-y-4">
-                                <div className="flex justify-between items-end bg-brand-mango/10 p-4 rounded-xl">
-                                    <span className="text-brand-navy/70 font-medium text-sm">Estimated Value</span>
-                                    <span className="text-2xl font-bold text-brand-navy font-heading">
+                                <div className="flex justify-between items-end bg-primary/10 p-4 rounded-xl">
+                                    <span className="text-secondary/70 font-medium text-sm">Estimated Value</span>
+                                    <span className="text-2xl font-bold text-secondary font-heading">
                                         ₹{estimatedCost.toLocaleString()}
                                     </span>
                                 </div>

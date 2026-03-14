@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 38, 70, 83;
-  /* brand-navy */
-  --background-start-rgb: 244, 241, 222;
-  /* brand-beige */
-  --background-end-rgb: 244, 241, 222;
+  --foreground-rgb: 64, 81, 59;
+  /* secondary color #40513b */
+  --background-start-rgb: 229, 217, 182;
+  /* background color #e5d9b6 */
+  --background-end-rgb: 229, 217, 182;
 }
 
 body {
@@ -39,10 +39,10 @@ body {
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-brand-beige;
+    @apply bg-background;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-brand-navy/20 rounded-full hover:bg-brand-navy/40 transition-colors;
+    @apply bg-secondary/20 rounded-full hover:bg-secondary/40 transition-colors;
   }
 }

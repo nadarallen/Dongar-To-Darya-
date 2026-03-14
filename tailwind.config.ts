@@ -9,19 +9,14 @@ const config: Config = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['var(--font-outfit)', 'sans-serif'],
-                heading: ['var(--font-heading)', 'serif'],
+                sans: ['"Classy Exclusive DEMO"', 'var(--font-outfit)', 'sans-serif'],
+                heading: ['"Classy Exclusive DEMO"', 'var(--font-cormorant)', 'serif'],
             },
             colors: {
-                brand: {
-                    mango: "#FFB703",
-                    green: "#81B29A",
-                    beige: "#F4F1DE", // Cream/Background
-                    clay: "#E07A5F", // Terracotta
-                    navy: "#264653",
-                    teal: "#2A9D8F",
-                    gray: "#64748B", // Export container gray
-                }
+                primary: "#f9a21b", // Mango Yellow from image
+                secondary: "#40513b", // Leaf Green from image
+                accent: "#753922", // Cashew Brown from image
+                background: "#e5d9b6", // Light Beige from image
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

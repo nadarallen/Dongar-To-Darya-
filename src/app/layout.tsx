@@ -1,28 +1,28 @@
 import type { Metadata } from 'next'
-import { Outfit, Inter, Cormorant_Garamond } from 'next/font/google'
+import { Inter, Outfit, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const cormorant = Cormorant_Garamond({
-    subsets: ['latin'],
-    variable: '--font-heading',
-    weight: ['400', '600', '700']
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
+const cormorant = Cormorant_Garamond({ 
+    weight: ['300', '400', '500', '600', '700'],
+    subsets: ['latin'], 
+    variable: '--font-cormorant' 
 })
 
 export const metadata: Metadata = {
-    title: 'Dongar To Darya | Premium Indian Exports',
-    description: 'Seamlessly connecting Indian Farms (Dongar) to Global Markets (Darya). Exporting premium Alphonso Mangoes, Cashews, and Pulp worldwide.',
-    keywords: ['Indian Export', 'Alphonso Mango', 'Cashew Export', 'Mango Pulp', 'Ratnagiri', 'Global Logistics', 'Dongar to Darya'],
+    title: 'Dongara To Darya | Premium Indian Exports',
+    description: 'Seamlessly connecting Indian Farms (Dongara) to Global Markets (Darya). Exporting premium Alphonso Mangoes, Cashews, and Pulp worldwide.',
+    keywords: ['Indian Export', 'Alphonso Mango', 'Cashew Export', 'Mango Pulp', 'Ratnagiri', 'Global Logistics', 'Dongara to Darya'],
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://dongartodarya.com',
-        title: 'Dongar To Darya | Premium Indian Exports',
+        url: 'https://dongaratodarya.com',
+        title: 'Dongara To Darya | Premium Indian Exports',
         description: 'From Indian Farms to Global Markets. Premium export of Mangoes, Cashews, and Agricultural products.',
-        siteName: 'Dongar To Darya',
+        siteName: 'Dongara To Darya',
     },
 }
 

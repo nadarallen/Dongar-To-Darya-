@@ -9,21 +9,21 @@ const trustFactors = [
         title: "Quality Certified",
         desc: "100% Export Grade. APEDA registered & Phyto-sanitary certified.",
         icon: BadgeCheck,
-        color: "text-brand-mango"
+        color: "text-primary"
     },
     {
         id: "pack",
         title: "Premium Packaging",
         desc: "Shock-proof, aerated packaging ensuring zero damage in transit.",
         icon: Package,
-        color: "text-brand-clay"
+        color: "text-accent"
     },
     {
         id: "cold",
         title: "Cold Chain",
         desc: "Unbroken cold storage from 13°C farm collection to reefer containers.",
         icon: Snowflake,
-        color: "text-brand-teal"
+        color: "text-accent"
     },
     {
         id: "ship",
@@ -36,15 +36,15 @@ const trustFactors = [
 
 export default function TrustInfographic() {
     return (
-        <section className="py-24 bg-brand-navy relative overflow-hidden">
+        <section className="py-24 bg-secondary relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-10 pointer-events-none"></div>
 
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16 space-y-4">
-                    <span className="text-brand-mango font-bold tracking-widest uppercase text-sm">Why Choose Us</span>
+                    <span className="text-primary font-bold tracking-widest uppercase text-sm">Why Choose Us</span>
                     <h2 className="text-4xl md:text-5xl font-bold font-heading text-white">
-                        Uncompromising <span className="text-brand-teal">Quality</span>
+                        Uncompromising <span className="text-accent">Quality</span>
                     </h2>
                     <p className="text-gray-300 max-w-2xl mx-auto">
                         From the soil of Ratnagiri to the shelves of Europe. We maintain impeccable standards at every step.
@@ -64,7 +64,7 @@ export default function TrustInfographic() {
                             <div className={`w-20 h-20 mb-6 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${factor.color}`}>
                                 <factor.icon size={40} strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-mango transition-colors">{factor.title}</h3>
+                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">{factor.title}</h3>
                             <p className="text-sm text-gray-400 leading-relaxed">{factor.desc}</p>
                         </motion.div>
                     ))}

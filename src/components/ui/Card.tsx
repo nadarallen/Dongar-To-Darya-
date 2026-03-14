@@ -10,7 +10,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
         const variants = {
             default: "bg-white shadow-lg border border-gray-100",
             glass: "glass-card",
-            neumophic: "bg-brand-beige shadow-[8px_8px_16px_#d1cfbe,-8px_-8px_16px_#ffffff]",
+            neumophic: "bg-background shadow-[8px_8px_16px_#d1cfbe,-8px_-8px_16px_#ffffff]",
         };
 
         return (

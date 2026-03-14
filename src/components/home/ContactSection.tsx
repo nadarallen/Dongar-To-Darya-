@@ -22,7 +22,7 @@ export default function ContactSection() {
     };
 
     const handleEmail = () => {
-        window.location.href = "mailto:export@dongartodarya.com";
+        window.location.href = "mailto:export@dongaratodarya.com";
     };
 
     return (
@@ -32,11 +32,11 @@ export default function ContactSection() {
 
                     {/* Header */}
                     <div className="text-center space-y-4">
-                        <span className="text-brand-clay font-bold tracking-widest uppercase text-sm">Get in Touch</span>
-                        <h2 className="text-4xl md:text-5xl font-bold font-heading text-brand-navy">
-                            Headquartered in <span className="text-brand-mango">Mumbai</span>
+                        <span className="text-accent font-bold tracking-widest uppercase text-sm">Get in Touch</span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-heading text-secondary">
+                            Headquartered in <span className="text-primary">Mumbai</span>
                         </h2>
-                        <p className="text-brand-navy/70 text-lg leading-relaxed">
+                        <p className="text-secondary/70 text-lg leading-relaxed">
                             Visit our office or send us a direct message below.
                         </p>
                     </div>
@@ -51,7 +51,7 @@ export default function ContactSection() {
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Your Name"
-                                    className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-brand-navy outline-none transition-all"
+                                    className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-secondary outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
@@ -61,7 +61,7 @@ export default function ContactSection() {
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
                                     placeholder="Phone Number"
-                                    className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-brand-navy outline-none transition-all"
+                                    className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-secondary outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function ContactSection() {
                                 onChange={(e) => setMessage(e.target.value)}
                                 placeholder="How can we help you?"
                                 rows={3}
-                                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-brand-navy outline-none resize-none transition-all"
+                                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 focus:border-secondary outline-none resize-none transition-all"
                             />
                         </div>
                         <Button onClick={handleWhatsApp} size="lg" className="w-full bg-[#25D366] hover:bg-[#20bd5a] border-none text-white shadow-md hover:shadow-lg hover:-translate-y-0.5">
@@ -84,21 +84,21 @@ export default function ContactSection() {
                     {/* Static Contact Info */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-gray-100">
                         <div className="flex items-center gap-4 justify-center md:justify-start">
-                            <div className="w-12 h-12 bg-brand-navy/5 rounded-full flex items-center justify-center shrink-0">
-                                <MapPin className="text-brand-navy w-6 h-6" />
+                            <div className="w-12 h-12 bg-secondary/5 rounded-full flex items-center justify-center shrink-0">
+                                <MapPin className="text-secondary w-6 h-6" />
                             </div>
                             <div className="text-left">
-                                <h4 className="font-bold text-brand-navy text-sm">Registered Office</h4>
-                                <p className="text-brand-navy/60 text-sm leading-snug">Mata Prasad Tiwari Chawal, Kajuwadi no-2,<br /> Parshiwada, Andheri East, Mumbai - 99</p>
+                                <h4 className="font-bold text-secondary text-sm">Registered Office</h4>
+                                <p className="text-secondary/60 text-sm leading-snug">Mata Prasad Tiwari Chawal, Kajuwadi no-2,<br /> Parshiwada, Andheri East, Mumbai - 99</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-4 justify-center md:justify-start">
-                            <div className="w-12 h-12 bg-brand-navy/5 rounded-full flex items-center justify-center shrink-0">
-                                <Phone className="text-brand-navy w-6 h-6" />
+                            <div className="w-12 h-12 bg-secondary/5 rounded-full flex items-center justify-center shrink-0">
+                                <Phone className="text-secondary w-6 h-6" />
                             </div>
                             <div className="text-left">
-                                <h4 className="font-bold text-brand-navy text-sm">Phone Support</h4>
-                                <p className="text-brand-navy/60 text-sm">+91 84199 21183</p>
+                                <h4 className="font-bold text-secondary text-sm">Phone Support</h4>
+                                <p className="text-secondary/60 text-sm">+91 84199 21183</p>
                             </div>
                         </div>
                     </div>
