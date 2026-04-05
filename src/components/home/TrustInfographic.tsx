@@ -9,28 +9,32 @@ const trustFactors = [
         title: "Quality Certified",
         desc: "100% Export Grade. APEDA registered & Phyto-sanitary certified.",
         icon: BadgeCheck,
-        color: "text-primary"
+        iconColor: "text-yellow-400",
+        bgClass: "bg-gradient-to-br from-yellow-400/20 to-green-600/30 border border-yellow-500/30 shadow-[0_0_20px_rgba(250,204,21,0.2)]"
     },
     {
         id: "pack",
         title: "Premium Packaging",
         desc: "Shock-proof, aerated packaging ensuring zero damage in transit.",
         icon: Package,
-        color: "text-accent"
+        iconColor: "text-accent",
+        bgClass: "bg-white/5"
     },
     {
         id: "cold",
         title: "Cold Chain",
         desc: "Unbroken cold storage from 13°C farm collection to reefer containers.",
         icon: Snowflake,
-        color: "text-accent"
+        iconColor: "text-accent",
+        bgClass: "bg-white/5"
     },
     {
         id: "ship",
         title: "Global Logistics",
         desc: "Partnerships with Maersk & Hapag-Lloyd for guaranteed slot booking.",
         icon: Ship,
-        color: "text-white"
+        iconColor: "text-white",
+        bgClass: "bg-white/5"
     },
 ];
 
@@ -47,7 +51,7 @@ export default function TrustInfographic() {
                         Uncompromising <span className="text-accent">Quality</span>
                     </h2>
                     <p className="text-gray-300 max-w-2xl mx-auto">
-                        From the soil of Ratnagiri to the shelves of Europe. We maintain impeccable standards at every step.
+                        From the soil of Devgadh to the shelves of Europe. We maintain impeccable standards at every step.
                     </p>
                 </div>
 
@@ -61,7 +65,7 @@ export default function TrustInfographic() {
                             transition={{ delay: index * 0.1 }}
                             className="glass-panel bg-white/5 border-white/10 p-8 rounded-2xl flex flex-col items-center text-center group hover:bg-white/10 transition-all duration-300"
                         >
-                            <div className={`w-20 h-20 mb-6 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${factor.color}`}>
+                            <div className={`w-20 h-20 mb-6 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${factor.bgClass} ${factor.iconColor}`}>
                                 <factor.icon size={40} strokeWidth={1.5} />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">{factor.title}</h3>

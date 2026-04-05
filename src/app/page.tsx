@@ -1,13 +1,12 @@
-import dynamic from 'next/dynamic';
-import Hero from "@/components/home/Hero";
+import StoryTimeline from "@/components/home/StoryTimeline";
+import TrustInfographic from "@/components/home/TrustInfographic";
+import QualityIngredients from "@/components/home/QualityIngredients";
+import ProductShowcase from "@/components/home/ProductShowcase";
+import OrderCalculator from "@/components/home/OrderCalculator";
+import ContactSection from "@/components/home/ContactSection";
+import GlobalReach from "@/components/home/GlobalReach";
 
-const StoryTimeline = dynamic(() => import("@/components/home/StoryTimeline"), { ssr: false });
-const TrustInfographic = dynamic(() => import("@/components/home/TrustInfographic"), { ssr: false });
-const QualityIngredients = dynamic(() => import("@/components/home/QualityIngredients"), { ssr: false });
-const ProductShowcase = dynamic(() => import("@/components/home/ProductShowcase"), { ssr: false });
-const OrderCalculator = dynamic(() => import("@/components/home/OrderCalculator"), { ssr: false });
-const ContactSection = dynamic(() => import("@/components/home/ContactSection"), { ssr: false });
-const GlobalReach = dynamic(() => import("@/components/home/GlobalReach"), { ssr: false });
+import Hero from "@/components/home/Hero";
 
 export default function Home() {
     return (

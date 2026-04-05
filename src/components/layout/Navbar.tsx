@@ -78,7 +78,7 @@ const Navbar = () => {
                                 "relative w-14 h-14 rounded-full overflow-hidden border-2 border-transparent transition-all duration-300 shadow-md",
                                 isOpen ? "border-secondary/20" : "group-hover:border-primary/50"
                             )}>
-                                <Image src={logo} alt="Dongara to Daryaa Logo" fill className="object-cover" />
+                                <Image src={logo} alt="Dongara To Darya Logo" fill className="object-cover" sizes="56px" />
                             </div>
                             <span className={cn(
                                 "text-2xl font-bold tracking-tight font-heading transition-colors",
@@ -171,7 +171,7 @@ const Navbar = () => {
                             >
                                 <Button
                                     size="lg"
-                                    className="w-full text-xl py-8 font-bold shadow-xl"
+                                    className="w-full text-lg py-6 font-bold shadow-xl"
                                     onClick={() => {
                                         setIsOpen(false);
                                         document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });

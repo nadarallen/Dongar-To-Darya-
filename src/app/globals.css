@@ -4,10 +4,8 @@
 
 :root {
   --foreground-rgb: 64, 81, 59;
-  /* secondary color #40513b */
-  --background-start-rgb: 229, 217, 182;
-  /* background color #e5d9b6 */
-  --background-end-rgb: 229, 217, 182;
+  --background-start-rgb: 250, 248, 245; /* #faf8f5 */
+  --background-end-rgb: 250, 248, 245;
 }
 
 body {

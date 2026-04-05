@@ -9,7 +9,7 @@ const products = [
     {
         id: "mango-alphonso",
         name: "Alphonso Mangoes",
-        desc: "The King of Mangoes. GI-tagged Ratnagiri Alphonso with rich aroma and sweetness.",
+        desc: "The King of Mangoes. GI-tagged Devgadh Alphonso with rich aroma and sweetness.",
         price: "Premium Rate",
         image: "/images/mango-product.png"
     },
@@ -61,7 +61,7 @@ export default function ProductShowcase() {
                 {/* Cashews & Raw Mangoes Grid: 4 Desktop, 2 Tablet, 1 Mobile */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-32">
                     {products.map((product) => (
-                        <div key={product.id} className="group relative bg-white/50 backdrop-blur-md rounded-[2rem] p-4 sm:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(249,162,27,0.3)] border border-primary/10 hover:border-primary/30 flex flex-col h-full">
+                        <div key={product.id} className="group relative bg-white/80 backdrop-blur-md rounded-[2rem] p-5 sm:p-6 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(249,162,27,0.3)] shadow-lg border border-primary/20 hover:border-primary/40 flex flex-col h-full">
                             
                             {/* Product Image Area with Zoom */}
                             <div className="h-48 sm:h-56 w-full bg-gradient-to-b from-primary/5 to-transparent rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center p-6">
@@ -120,7 +120,7 @@ export default function ProductShowcase() {
                             Premium Alphonso <br/>Mango Pulp
                         </h2>
                         <p className="text-white/90 text-lg sm:text-xl font-medium max-w-xl mx-auto lg:mx-0">
-                            The essence of summer, locked in a jar. No artificial flavors, no preservatives. Just 100% natural Ratnagiri Alphonso mangoes ready for your beverages and desserts.
+                            The essence of summer, locked in a jar. No artificial flavors, no preservatives. Just 100% natural Devgadh Alphonso mangoes ready for your beverages and desserts.
                         </p>
 
                         {/* Badges */}

@@ -21,11 +21,11 @@ export default function Hero() {
                     src="/images/hero-background.png"
                     alt="Dongara to Darya Mango Orchard"
                     fill
-                    priority
-                    className="object-cover object-center opacity-90 mix-blend-multiply"
+                    className="object-cover object-center opacity-40 mix-blend-overlay"
+                    sizes="100vw"
                 />
                 {/* Gradient Overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-secondary/90 via-secondary/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-secondary/95 via-secondary/40 to-transparent" />
             </div>
 
             {/* Floating Decorative Elements */}
@@ -49,14 +49,14 @@ export default function Hero() {
                     transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                     className="absolute top-[30%] right-[20%] opacity-25 w-16 h-16 md:w-24 md:h-24 blur-[1px]"
                 >
-                    <Image src="/images/mango-product.png" alt="Mango" fill className="object-contain" />
+                    <Image src="/images/mango-product.png" alt="Mango" fill className="object-contain" sizes="(max-width: 768px) 4rem, 6rem" />
                 </motion.div>
                 <motion.div
                     animate={{ y: [0, 30, 0], x: [0, -20, 0], rotate: [0, -20, 0] }}
                     transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                     className="absolute bottom-[30%] left-[15%] opacity-25 w-16 h-16 md:w-20 md:h-20 blur-[1px]"
                 >
-                    <Image src="/images/cashew-product.png" alt="Cashew" fill className="object-contain" />
+                    <Image src="/images/cashew-product.png" alt="Cashew" fill className="object-contain" sizes="(max-width: 768px) 4rem, 5rem" />
                 </motion.div>
             </div>
 
@@ -99,7 +99,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-                        className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-6"
+                        className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4 md:pt-6"
                     >
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                             <Button
@@ -107,7 +107,7 @@ export default function Hero() {
                                 className="w-full sm:w-auto flex items-center justify-center gap-3 text-background bg-primary hover:bg-background hover:text-secondary font-bold text-lg py-6 shadow-[0_0_30px_rgba(249,162,27,0.3)] transition-colors duration-300 pointer-events-auto"
                                 onClick={() => scrollToSection('calculator')}
                             >
-                                <MessageCircle size={24} />
+                                <MessageCircle size={22} className="md:w-6 md:h-6" />
                                 WhatsApp Quote
                             </Button>
                         </motion.div>
@@ -115,11 +115,11 @@ export default function Hero() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-background/40 text-background hover:bg-background/20 hover:text-white font-bold text-lg py-6 transition-colors duration-300 pointer-events-auto"
+                                className="w-full sm:w-auto flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-background/40 text-background hover:bg-background/80 hover:text-secondary font-bold text-base md:text-lg py-5 md:py-6 transition-colors duration-300 pointer-events-auto"
                                 onClick={() => scrollToSection('products')}
                             >
                                 Explore Products
-                                <ArrowRight size={24} />
+                                <ArrowRight size={22} className="md:w-6 md:h-6" />
                             </Button>
                         </motion.div>
                     </motion.div>

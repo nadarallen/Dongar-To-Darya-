@@ -11,7 +11,7 @@ const steps = [
     {
         id: "farm",
         title: "1. The Source",
-        description: "Handpicked from the lush, rugged hills of Ratnagiri. Our farmers ensure each harvest is peak quality.",
+        description: "Handpicked from the lush, rugged hills of Devgadh. Our farmers ensure each harvest is peak quality.",
         color: "bg-secondary text-white",
         icon: <Leaf className="w-8 h-8 text-white" />,
         image: "/images/timeline-farm.png"

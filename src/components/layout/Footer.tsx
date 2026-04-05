@@ -14,7 +14,7 @@ const Footer = () => {
                     <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
                         <div className="flex items-center gap-3">
                             <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg shadow-primary/20 border-2 border-primary/50 bg-background">
-                                <Image src={logo} alt="Dongara To Darya Logo" fill className="object-cover" />
+                                <Image src={logo} alt="Dongara To Darya Logo" fill className="object-cover" sizes="64px" />
                             </div>
                             <span className="text-3xl font-bold font-heading text-primary">Dongara To Darya</span>
                         </div>

@@ -15,7 +15,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
     title: 'Dongara To Darya | Premium Indian Exports',
     description: 'Seamlessly connecting Indian Farms (Dongara) to Global Markets (Darya). Exporting premium Alphonso Mangoes, Cashews, and Pulp worldwide.',
-    keywords: ['Indian Export', 'Alphonso Mango', 'Cashew Export', 'Mango Pulp', 'Ratnagiri', 'Global Logistics', 'Dongara to Darya'],
+    keywords: ['Indian Export', 'Alphonso Mango', 'Cashew Export', 'Mango Pulp', 'Devgadh', 'Global Logistics', 'Dongara to Darya'],
     openGraph: {
         type: 'website',
         locale: 'en_US',
@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${outfit.variable} ${cormorant.variable} font-sans bg-brand-beige text-brand-navy antialiased flex flex-col min-h-screen`}>
+            <body className={`${inter.variable} ${outfit.variable} ${cormorant.variable} relative font-sans bg-brand-beige text-brand-navy antialiased flex flex-col min-h-screen`}>
                 <Navbar />
                 <main className="flex-grow pt-20">
                     {children}

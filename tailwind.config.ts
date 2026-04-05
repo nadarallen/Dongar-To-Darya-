@@ -9,14 +9,15 @@ const config: Config = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Classy Exclusive DEMO"', 'var(--font-outfit)', 'sans-serif'],
+                sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
                 heading: ['"Classy Exclusive DEMO"', 'var(--font-cormorant)', 'serif'],
             },
             colors: {
-                primary: "#f9a21b", // Mango Yellow from image
-                secondary: "#40513b", // Leaf Green from image
-                accent: "#753922", // Cashew Brown from image
-                background: "#e5d9b6", // Light Beige from image
+                primary: "#f9a21b", // Mango Yellow
+                secondary: "#40513b", // Leaf Green
+                accent: "#753922", // Cashew Brown
+                background: "#faf8f5", // Clean Off-White
+                surface: "#e5d9b6", // Light Beige Accent
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

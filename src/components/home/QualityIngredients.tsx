@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 const ingredients = [
     {
         id: "mango",
-        title: "Ratnagiri Alphonso Mangoes",
-        description: "Known as the King of Mangoes, our GI-tagged Alphonso mangoes are carefully handpicked, ensuring the perfect balance of sweetness and rich, vibrant color.",
+        title: "Devgadh Alphonso Mangoes",
+        description: "Known as the King of Mangoes, our GI-tagged Alphonso mangoes are carefully handpicked, ensuring the perfect balance of sweetness and rich, vibrant colour.",
         // A stylized mango representation
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
